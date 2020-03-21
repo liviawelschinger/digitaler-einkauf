@@ -1,8 +1,11 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class Order implements Serializable {
 	private Boolean kaufen;
 	private Boolean liefern;
 	private Boolean bezahlt;
+	@OneToMany(targetEntity = Product.class, mappedBy = "id", fetch = FetchType.LAZY)
 	private List<Product> produkte;
 
 	public Integer getId() {
