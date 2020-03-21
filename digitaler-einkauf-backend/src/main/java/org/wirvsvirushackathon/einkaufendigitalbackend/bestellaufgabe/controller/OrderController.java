@@ -1,4 +1,4 @@
-package org.wirvsvirushackathon.einkaufendigitalbackend.services;
+package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -6,10 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.wirvsvirushackathon.einkaufendigitalbackend.entities.Order;
-import org.wirvsvirushackathon.einkaufendigitalbackend.repositories.OrderRepository;
-
-import java.awt.*;
+import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.Order;
+import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.repositories.OrderRepository;
 
 @RestController
 public class OrderController {
