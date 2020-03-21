@@ -6,6 +6,5 @@ import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.P
 
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 
-    // TODO: Abfrage bauen
     Iterable<Product> findByCategoryId(Integer categoryId);
 }

@@ -25,43 +25,6 @@ public class DigitalerEinkaufBackendApplication {
 	@Autowired
 	private ProductRepository productRepository;
 
-	/**
-	 * Testdaten anlegen
-	 */
-	@PostConstruct
-	public void init() {
-		LOG.info("Init-Methode gestartet");
-
-
-		Category lebensmittel = new Category();
-		lebensmittel.setName("Lebensmittel");
-		categoryRepository.save(lebensmittel);
-
-		Category hygiene = new Category();
-		hygiene.setName("Hygieneprodukte");
-		categoryRepository.save(hygiene);
-
-		Product nudeln = new Product();
-		nudeln.setName("Nudeln");
-		nudeln.setCategory(lebensmittel);
-		productRepository.save(nudeln);
-
-		Product reis = new Product();
-		reis.setName("Reis");
-		reis.setCategory(lebensmittel);
-		productRepository.save(reis);
-
-
-		Product shampoo = new Product();
-		shampoo.setName("Shampoo");
-		shampoo.setCategory(hygiene);
-		productRepository.save(shampoo);
-
-
-		LOG.info("Init-Methode ausgeführt");
-	}
-
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(DigitalerEinkaufBackendApplication.class, args);

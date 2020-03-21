@@ -6,4 +6,6 @@ import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.C
 public interface CategoryRepository extends CrudRepository<Category, Integer> {
 
 
+    Category findCategoryByName(String name);
+
 }

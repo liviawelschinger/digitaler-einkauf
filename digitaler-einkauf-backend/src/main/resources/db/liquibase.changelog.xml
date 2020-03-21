@@ -127,14 +127,31 @@
           referencedTableName="product"/>
     </changeSet>
 
-    <changeSet id="60" author="mk" failOnError="false" runAlways="true">
+    <changeSet id="60" author="mk">
+        <createTable tableName="category">
+            <column name="id" type="int" >
+                <constraints primaryKey="true" primaryKeyName="pk_category" />
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints unique="true" />
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="70" author="mk" failOnError="false" runAlways="true">
         <preConditions>
-            <tableExists tableName="prodcut" />
+            <tableExists tableName="product" />
         </preConditions>
         <addColumn tableName="product">
             <column name="category_id" type="int">
             </column>
         </addColumn>
+    </changeSet>
+    
+    <changeSet id="80" author="mk">
+        <addForeignKeyConstraint baseTableName="category" baseColumnNames="id" constraintName="fk_category_product" referencedTableName="product"
+                                 referencedColumnNames="category_id"/>
     </changeSet>
 
 </databaseChangeLog>
