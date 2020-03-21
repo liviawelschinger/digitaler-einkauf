@@ -16,15 +16,14 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column
 	private Integer id;
 
 	@Column
 	private String username;
 	@Column
 	private String passwort;
-	@Column
-	private Person person;
+
+	//private Person person;
 
 	public Integer getId() {
 		return id;
@@ -50,6 +49,7 @@ public class User implements Serializable {
 		this.passwort = passwort;
 	}
 
+	/*
 	public Person getPerson() {
 		return person;
 	}
@@ -57,10 +57,12 @@ public class User implements Serializable {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+	*/
 
+	/*
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", passwort=" + passwort + ", person=" + person + "]";
 	}
-
+	*/
 }

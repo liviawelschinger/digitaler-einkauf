@@ -16,11 +16,10 @@ public class Person implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column
 	private Integer id;
 
-	@Column
-	private GeoData geodata;
+	//private GeoData geodata;
+
 	@Column
 	private String vorname;
 	@Column
@@ -38,6 +37,7 @@ public class Person implements Serializable {
 		this.id = id;
 	}
 
+	/*
 	public GeoData getGeodata() {
 		return geodata;
 	}
@@ -45,6 +45,7 @@ public class Person implements Serializable {
 	public void setGeodata(GeoData geodata) {
 		this.geodata = geodata;
 	}
+	*/
 
 	public String getVorname() {
 		return vorname;
@@ -78,10 +79,11 @@ public class Person implements Serializable {
 		this.email = email;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", geodata=" + geodata + ", vorname=" + vorname + ", nachname=" + nachname
 				+ ", telefon=" + telefon + ", email=" + email + "]";
 	}
-
+	*/
 }

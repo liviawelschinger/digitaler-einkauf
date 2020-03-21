@@ -13,7 +13,6 @@ public class Product implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column
     private Integer id;
 
     @Column
