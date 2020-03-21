@@ -2,11 +2,10 @@ package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product implements Serializable {
 
     @Id
@@ -16,7 +15,7 @@ public class Product implements Serializable {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(targetEntity = Category.class,  fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Category.class)
     private Category category;
 
     public Integer getId() {

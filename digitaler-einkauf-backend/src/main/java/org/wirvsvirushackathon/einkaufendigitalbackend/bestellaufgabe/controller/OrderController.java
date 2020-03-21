@@ -15,12 +15,12 @@ public class OrderController {
     @Autowired
     private OrderRepository orderRepository;
 
-    @GetMapping(value = "/order")
+    @GetMapping(value = "/orders")
     public Iterable<Order> findAll() {
         return orderRepository.findAll();
     }
 
-    @PostMapping(value = "/order/new", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/orders/new", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Order createNew(@RequestBody Order order) {
             return this.orderRepository.save(order);
     }

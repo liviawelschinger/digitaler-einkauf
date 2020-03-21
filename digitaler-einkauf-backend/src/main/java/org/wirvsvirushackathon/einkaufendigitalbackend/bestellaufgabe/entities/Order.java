@@ -2,18 +2,18 @@ package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
+@Table(name = "orders")
 public class Order implements Serializable {
 
     @Id
     private Integer id;
 
-    @OneToMany
-    private List<Product> products;
+    //@OneToMany
+    //private List<Product> products;
 
 
 }

@@ -1,7 +1,9 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.Product;
 import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.repositories.ProductRepository;
 
@@ -13,12 +15,12 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public Iterable<Product> getAll() {
         return productRepository.findAll();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public Product get(@PathVariable Integer id) {
         Optional<Product> product = productRepository.findById(id);
         if (product.isEmpty()) {
@@ -27,19 +29,8 @@ public class ProductController {
         return product.get();
     }
 
-    @GetMapping("/product/getByCategory/")
-    public Iterable<Product> getProductByCategory(@RequestParam Integer categoryId) {
-        return null;
+    @GetMapping("/products/category/{categoryId}")
+    public Iterable<Product> getProductByCategory(@PathVariable Integer categoryId) {
+        return productRepository.findByCategoryId(categoryId);
     }
-
-    // Test-Zweck
-    @PostMapping("/product/createTestData")
-    public Iterable<Product> createTestData() {
-        Product nudeln = new Product();
-        nudeln.setName("Nudeln");
-        productRepository.save(nudeln);
-        return productRepository.findAll();
-    }
-
-
 }
