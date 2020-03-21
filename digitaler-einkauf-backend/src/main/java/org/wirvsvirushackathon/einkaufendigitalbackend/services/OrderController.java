@@ -24,7 +24,7 @@ public class OrderController {
 
     @PostMapping(value = "/order/new", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Order createNew(@RequestBody Order order) {
-        return this.orderRepository.save(order);
+            return this.orderRepository.save(order);
     }
 
 }
