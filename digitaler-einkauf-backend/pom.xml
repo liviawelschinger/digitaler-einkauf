@@ -45,6 +45,7 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -59,10 +60,59 @@
 			<version>${swagger.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+
 	</dependencies>
+
+	<profiles>
+		<!-- Profile for local development -->
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dbUserName>sa</dbUserName>
+				<dbUserPassword>password</dbUserPassword>
+				<dbDriver>org.h2.Driver</dbDriver>
+				<dbUrl>jdbc:h2:mem:testdb</dbUrl>
+				<dbSchema>testdb</dbSchema>
+				<maven.test.skip>false</maven.test.skip>
+				<activatedProperties>dev</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
+
+			<!-- liquibase -->
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<changeLogFile>
+						${basedir}/src/main/resources/db/liquibase.changelog.xml
+					</changeLogFile>
+					<driver>${dbDriver}</driver>
+					<url>${dbUrl}</url>
+					<username>${dbUserName}</username>
+					<password>${dbUserPassword}</password>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+					<changelogSchemaName>${dbSchema}</changelogSchemaName>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
