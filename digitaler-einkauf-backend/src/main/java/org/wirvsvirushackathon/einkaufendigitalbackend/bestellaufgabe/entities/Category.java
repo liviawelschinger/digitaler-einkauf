@@ -16,6 +16,7 @@ public class Category implements Serializable {
     private Integer id;
 
     @OneToMany(targetEntity = Product.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
     private List<Product> products;
 
     @Column(nullable = false)
