@@ -1,20 +1,29 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name = Product.TABLE_NAME)
 public class Product implements Serializable {
+	public static final String TABLE_NAME = "product";
 
 	@Id
 	@GeneratedValue
+	@Column
 	private Integer id;
 
+	@Column
 	private String name;
+	@Column
 	private String alternativ;
+	@Column
 	private Integer anzahl;
 
 	public Integer getId() {

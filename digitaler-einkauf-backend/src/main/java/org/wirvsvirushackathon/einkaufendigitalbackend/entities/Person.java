@@ -1,24 +1,34 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name = Person.TABLE_NAME)
 public class Person implements Serializable {
+	public static final String TABLE_NAME = "person";
 
 	@Id
 	@GeneratedValue
+	@Column
 	private Integer id;
 
+	@Column
+	private GeoData geodata;
+	@Column
 	private String vorname;
+	@Column
 	private String nachname;
-	private String strasse;
-	private String nummer;
-	private Integer plz;
-	private String ort;
+	@Column
+	private String telefon;
+	@Column
+	private String email;
 
 	public Integer getId() {
 		return id;
@@ -26,6 +36,14 @@ public class Person implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public GeoData getGeodata() {
+		return geodata;
+	}
+
+	public void setGeodata(GeoData geodata) {
+		this.geodata = geodata;
 	}
 
 	public String getVorname() {
@@ -44,42 +62,26 @@ public class Person implements Serializable {
 		this.nachname = nachname;
 	}
 
-	public String getStrasse() {
-		return strasse;
+	public String getTelefon() {
+		return telefon;
 	}
 
-	public void setStrasse(String strasse) {
-		this.strasse = strasse;
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
 	}
 
-	public String getNummer() {
-		return nummer;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setNummer(String nummer) {
-		this.nummer = nummer;
-	}
-
-	public Integer getPlz() {
-		return plz;
-	}
-
-	public void setPlz(Integer plz) {
-		this.plz = plz;
-	}
-
-	public String getOrt() {
-		return ort;
-	}
-
-	public void setOrt(String ort) {
-		this.ort = ort;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", vorname=" + vorname + ", nachname=" + nachname + ", strasse=" + strasse
-				+ ", nummer=" + nummer + ", plz=" + plz + ", ort=" + ort + "]";
+		return "Person [id=" + id + ", geodata=" + geodata + ", vorname=" + vorname + ", nachname=" + nachname
+				+ ", telefon=" + telefon + ", email=" + email + "]";
 	}
 
 }

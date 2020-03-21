@@ -1,31 +1,43 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
+@Table(name = Order.TABLE_NAME)
 public class Order implements Serializable {
+	public static final String TABLE_NAME = "order";
 
 	@Id
 	@GeneratedValue
+	@Column
 	private Integer id;
 
+	@Column
 	private Person einkaeufer;
+	@Column
 	private User komissionaer;
+	@Column
 	private User lieferant;
+	@Column
 	private String summeKosten;
-	private Boolean kaufen;
-	private Boolean liefern;
-	private Boolean bezahlt;
 	@OneToMany(targetEntity = Product.class, mappedBy = "id", fetch = FetchType.LAZY)
 	private List<Product> produkte;
+	@Column
+	private OrderStatus status;
+	@Column
+	private Long created;
+	@Column
+	private Long updated;
 
 	public Integer getId() {
 		return id;
@@ -67,30 +79,6 @@ public class Order implements Serializable {
 		this.summeKosten = summeKosten;
 	}
 
-	public Boolean getKaufen() {
-		return kaufen;
-	}
-
-	public void setKaufen(Boolean kaufen) {
-		this.kaufen = kaufen;
-	}
-
-	public Boolean getLiefern() {
-		return liefern;
-	}
-
-	public void setLiefern(Boolean liefern) {
-		this.liefern = liefern;
-	}
-
-	public Boolean getBezahlt() {
-		return bezahlt;
-	}
-
-	public void setBezahlt(Boolean bezahlt) {
-		this.bezahlt = bezahlt;
-	}
-
 	public List<Product> getProdukte() {
 		return produkte;
 	}
@@ -99,11 +87,35 @@ public class Order implements Serializable {
 		this.produkte = produkte;
 	}
 
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public Long getCreated() {
+		return created;
+	}
+
+	public void setCreated(Long created) {
+		this.created = created;
+	}
+
+	public Long getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(Long updated) {
+		this.updated = updated;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", einkaeufer=" + einkaeufer + ", komissionaer=" + komissionaer + ", lieferant="
-				+ lieferant + ", summeKosten=" + summeKosten + ", kaufen=" + kaufen + ", liefern=" + liefern
-				+ ", bezahlt=" + bezahlt + ", produkte=" + produkte + "]";
+				+ lieferant + ", summeKosten=" + summeKosten + ", produkte=" + produkte + ", status=" + status
+				+ ", created=" + created + ", updated=" + updated + "]";
 	}
 
 }

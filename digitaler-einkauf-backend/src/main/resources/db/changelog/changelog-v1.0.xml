@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<changeSet id="1" author="Maximilian">
+		<insert tableName="status">
+			<column name="name" value="offen" />
+		</insert>
+		<insert tableName="orderstatus">
+			<column name="name" value="zugewiesen" />
+		</insert>
+		<insert tableName="orderstatus">
+			<column name="name" value="bearbeitung" />
+		</insert>
+		<insert tableName="orderstatus">
+			<column name="name" value="abholung_lieferung" />
+		</insert>
+		<insert tableName="orderstatus">
+			<column name="name" value="abgeliefert" />
+		</insert>
+		<insert tableName="orderstatus">
+			<column name="name" value="storniert" />
+		</insert>
+	</changeSet>
+</databaseChangeLog> 
