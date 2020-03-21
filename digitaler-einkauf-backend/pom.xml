@@ -108,7 +108,6 @@
 					<username>${dbUserName}</username>
 					<password>${dbUserPassword}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-					<changelogSchemaName>${dbSchema}</changelogSchemaName>
 				</configuration>
 			</plugin>
 
