@@ -29,6 +29,12 @@ public class PayPalController {
         return "index";
     }
 
+    @GetMapping("/css/style.css")
+    public String style() { return "css/style.css"; }
+
+    @GetMapping("/src/main.js")
+    public String code() { return "src/main.js"; }
+
     @PostMapping("/pay")
     public String payment(@ModelAttribute("order") Order order) {
         try {
