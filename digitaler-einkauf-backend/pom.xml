@@ -11,7 +11,7 @@
 	<groupId>org.wirvsvirushackathon</groupId>
 	<artifactId>einkaufen-digital-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>einkaufen-digital-backend</name>
+	<name>digitaler-einkauf-backend</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -19,6 +19,10 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -34,6 +38,12 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
 		</dependency>
 	</dependencies>
 
