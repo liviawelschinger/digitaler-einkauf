@@ -1,9 +1,15 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.service;
 
 import com.github.javafaker.Faker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.Category;
 import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities.Product;
+import org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.repositories.ProductRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -14,12 +20,21 @@ import java.util.Random;
 @Service
 public class FakeDataService {
 
+	private static final Logger LOG = LogManager.getLogger(FakeDataService.class);
+
+	@Autowired
+	private Integer fakeDataAmount;
+
+	@Autowired
+	private ProductRepository productRepository;
+
 	@PostConstruct
 	public void init() {
-		List<Product> products = getRandomProducts(100);
-		for (Product p : products) {
-			System.out.println(p);
-		}
+		LOG.info("Fake-Daten werden erzeugt");
+		List<Product> productList = getRandomProducts(fakeDataAmount);
+		LOG.info("Fake-Daten werden in der DB gespeichert");
+		productRepository.saveAll(productList);
+		LOG.info("Fake-Daten sind in der DB gespeichert");
 	}
 
 	private List<Product> getRandomProducts(int count) {
@@ -61,6 +76,7 @@ public class FakeDataService {
 				p.setCategory(c);
 				break;
 			}
+			LOG.debug(p + " wird hinzugefügt");
 			products.add(p);
 		}
 		return products;
