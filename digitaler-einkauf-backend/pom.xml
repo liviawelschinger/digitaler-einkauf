@@ -45,6 +45,12 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>1.14.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
