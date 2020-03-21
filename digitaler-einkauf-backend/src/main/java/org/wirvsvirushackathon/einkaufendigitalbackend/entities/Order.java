@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
@@ -20,8 +21,7 @@ public class Order implements Serializable {
 	private Boolean kaufen;
 	private Boolean liefern;
 	private Boolean bezahlt;
-
-	private String bestellung;
+	private List<Product> produkte;
 
 	public Integer getId() {
 		return id;
@@ -87,19 +87,19 @@ public class Order implements Serializable {
 		this.bezahlt = bezahlt;
 	}
 
-	public String getBestellung() {
-		return bestellung;
+	public List<Product> getProdukte() {
+		return produkte;
 	}
 
-	public void setBestellung(String bestellung) {
-		this.bestellung = bestellung;
+	public void setProdukte(List<Product> produkte) {
+		this.produkte = produkte;
 	}
 
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", einkaeufer=" + einkaeufer + ", komissionaer=" + komissionaer + ", lieferant="
 				+ lieferant + ", summeKosten=" + summeKosten + ", kaufen=" + kaufen + ", liefern=" + liefern
-				+ ", bezahlt=" + bezahlt + ", bestellung=" + bestellung + "]";
+				+ ", bezahlt=" + bezahlt + ", produkte=" + produkte + "]";
 	}
 
 }
