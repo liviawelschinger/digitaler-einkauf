@@ -1,10 +1,6 @@
 package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,55 +8,69 @@ import java.io.Serializable;
 @Entity
 @Table(name = Product.TABLE_NAME)
 public class Product implements Serializable {
-	public static final String TABLE_NAME = "product";
 
-	@Id
-	@GeneratedValue
-	@Column
-	private Integer id;
+    public static final String TABLE_NAME = "product";
 
-	@Column
-	private String name;
-	@Column
-	private String alternativ;
-	@Column
-	private Integer anzahl;
+    @Id
+    @GeneratedValue
+    @Column
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    @Column
+    private String name;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    @Column
+    private String alternativ;
 
-	public String getName() {
-		return name;
-	}
+    @Column
+    private Integer anzahl;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @ManyToOne(targetEntity = Category.class)
+    private Category category;
 
-	public String getAlternativ() {
-		return alternativ;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setAlternativ(String alternativ) {
-		this.alternativ = alternativ;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Integer getAnzahl() {
-		return anzahl;
-	}
+    public Category getCategory() {
+        return category;
+    }
 
-	public void setAnzahl(Integer anzahl) {
-		this.anzahl = anzahl;
-	}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", alternativ=" + alternativ + ", anzahl=" + anzahl + "]";
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAlternativ() {
+        return alternativ;
+    }
+
+    public void setAlternativ(String alternativ) {
+        this.alternativ = alternativ;
+    }
+
+    public Integer getAnzahl() {
+        return anzahl;
+    }
+
+    public void setAnzahl(Integer anzahl) {
+        this.anzahl = anzahl;
+    }
+
+    @Override
+    public String toString() {
+        return "Product [id=" + id + ", name=" + name + ", alternativ=" + alternativ + ", anzahl=" + anzahl + "]";
+    }
 
 }

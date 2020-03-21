@@ -127,4 +127,14 @@
           referencedTableName="product"/>
     </changeSet>
 
+    <changeSet id="60" author="mk" failOnError="false" runAlways="true">
+        <preConditions>
+            <tableExists tableName="prodcut" />
+        </preConditions>
+        <addColumn tableName="product">
+            <column name="category_id" type="int">
+            </column>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
