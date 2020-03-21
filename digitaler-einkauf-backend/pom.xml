@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.wirvsvirushackathon</groupId>
-	<artifactId>einkaufen-digital-backend</artifactId>
+	<artifactId>digitaler-einkauf-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>digitaler-einkauf-backend</name>
 	<description>Demo project for Spring Boot</description>
