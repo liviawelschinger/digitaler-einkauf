@@ -85,7 +85,6 @@
 				<dbUserPassword>password</dbUserPassword>
 				<dbDriver>org.h2.Driver</dbDriver>
 				<dbUrl>jdbc:h2:mem:testdb</dbUrl>
-				<dbSchema>testdb</dbSchema>
 				<maven.test.skip>false</maven.test.skip>
 				<activatedProperties>dev</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
 			</properties>
