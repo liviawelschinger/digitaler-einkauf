@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "95d55b10-6e41-41b6-8659-9e5d8d5001cc",
+		"name": "digitaler-einkauf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get an Access Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "EPzVVV1UL13eoy5STYhEtnQ7Datbu4NJKGgP-K5Kxr9FKdsFJXwNmctztQdx0oqVxV5dPoschBiK9Dux",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AdCk0aAdnxxglfLEcQIAJ2aIXj3NuaP8L_wAHsox-MWo4kg2gLc6zqStVn2MBuLOGuJoIP02fwtRpW01",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sandbox Invoices",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A21AAFftXOYmeQypU2iCEQgSN2yxbjw2BjRwG9rBaPJ1QEUdZ4PICGhFkPq-9OmsBxkPrlAbNENqxjYzdNRon_i-o2y9I4PbA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/invoicing/invoices?page=3&page_size=4&total_count_required=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"invoicing",
+						"invoices"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "page_size",
+							"value": "4"
+						},
+						{
+							"key": "total_count_required",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get web profiles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "A21AAFftXOYmeQypU2iCEQgSN2yxbjw2BjRwG9rBaPJ1QEUdZ4PICGhFkPq-9OmsBxkPrlAbNENqxjYzdNRon_i-o2y9I4PbA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox.paypal.com/v1/payment-experience/web-profiles/XP-8YTH-NNP3-WSVN-3C76",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"paypal",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment-experience",
+						"web-profiles",
+						"XP-8YTH-NNP3-WSVN-3C76"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
