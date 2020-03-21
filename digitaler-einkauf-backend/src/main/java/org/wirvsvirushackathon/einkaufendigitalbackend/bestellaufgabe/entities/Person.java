@@ -2,8 +2,10 @@ package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.io.Serializable;
@@ -18,7 +20,8 @@ public class Person implements Serializable {
 	@GeneratedValue
 	private Integer id;
 
-	//private GeoData geodata;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private GeoData geodata;
 
 	@Column
 	private String vorname;
@@ -37,7 +40,6 @@ public class Person implements Serializable {
 		this.id = id;
 	}
 
-	/*
 	public GeoData getGeodata() {
 		return geodata;
 	}
@@ -45,7 +47,6 @@ public class Person implements Serializable {
 	public void setGeodata(GeoData geodata) {
 		this.geodata = geodata;
 	}
-	*/
 
 	public String getVorname() {
 		return vorname;

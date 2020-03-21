@@ -24,6 +24,9 @@ public class Product implements Serializable {
     @Column
     private Integer anzahl;
 
+    @ManyToOne(targetEntity = Order.class)
+    private Order order;
+
     @ManyToOne(targetEntity = Category.class)
     private Category category;
 

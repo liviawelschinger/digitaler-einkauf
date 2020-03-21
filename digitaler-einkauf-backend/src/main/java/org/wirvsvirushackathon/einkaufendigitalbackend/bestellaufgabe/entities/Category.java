@@ -15,10 +15,6 @@ public class Category implements Serializable {
     @GeneratedValue
     private Integer id;
 
-    @OneToMany(targetEntity = Product.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private List<Product> products;
-
     @Column(nullable = false)
     private String name;
 
@@ -33,15 +29,5 @@ public class Category implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-
 
 }

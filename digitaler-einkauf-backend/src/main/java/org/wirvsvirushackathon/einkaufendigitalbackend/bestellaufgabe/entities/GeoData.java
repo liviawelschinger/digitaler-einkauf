@@ -16,7 +16,6 @@ public class GeoData implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column
 	private Integer id;
 
 	@Column

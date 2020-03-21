@@ -2,8 +2,10 @@ package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.io.Serializable;
@@ -23,7 +25,8 @@ public class User implements Serializable {
 	@Column
 	private String passwort;
 
-	//private Person person;
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Person person;
 
 	public Integer getId() {
 		return id;
@@ -49,7 +52,6 @@ public class User implements Serializable {
 		this.passwort = passwort;
 	}
 
-	/*
 	public Person getPerson() {
 		return person;
 	}
@@ -57,12 +59,10 @@ public class User implements Serializable {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-	*/
 
-	/*
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", passwort=" + passwort + ", person=" + person + "]";
 	}
-	*/
+
 }

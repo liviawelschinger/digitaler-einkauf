@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,26 +20,25 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue
-	//@Column
 	private Integer id;
 
-/*
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Person einkaeufer;
 
+	@ManyToOne(fetch = FetchType.EAGER)
 	private User komissionaer;
 
+	@ManyToOne(fetch = FetchType.EAGER)
 	private User lieferant;
-*/
 
 	@Column
 	private String summeKosten;
 
-	/*
-	@OneToMany(targetEntity = Product.class, mappedBy = "id", fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = Product.class, mappedBy = "order", fetch = FetchType.LAZY)
 	private List<Product> produkte;
 
+	@ManyToOne(fetch = FetchType.EAGER)
 	private OrderStatus status;
-	*/
 
 	@Column
 	private Long created;
@@ -53,7 +53,6 @@ public class Order implements Serializable {
 		this.id = id;
 	}
 
-	/*
 	public Person getEinkaeufer() {
 		return einkaeufer;
 	}
@@ -77,7 +76,7 @@ public class Order implements Serializable {
 	public void setLieferant(User lieferant) {
 		this.lieferant = lieferant;
 	}
-	*/
+
 	public String getSummeKosten() {
 		return summeKosten;
 	}
@@ -86,7 +85,6 @@ public class Order implements Serializable {
 		this.summeKosten = summeKosten;
 	}
 
-	/*
 	public List<Product> getProdukte() {
 		return produkte;
 	}
@@ -102,7 +100,6 @@ public class Order implements Serializable {
 	public void setStatus(OrderStatus status) {
 		this.status = status;
 	}
-	*/
 
 	public Long getCreated() {
 		return created;
@@ -120,13 +117,11 @@ public class Order implements Serializable {
 		this.updated = updated;
 	}
 
-	/*
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", einkaeufer=" + einkaeufer + ", komissionaer=" + komissionaer + ", lieferant="
 				+ lieferant + ", summeKosten=" + summeKosten + ", produkte=" + produkte + ", status=" + status
 				+ ", created=" + created + ", updated=" + updated + "]";
 	}
-	*/
 
 }
