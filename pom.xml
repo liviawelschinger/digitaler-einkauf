@@ -94,6 +94,13 @@
 			<version>1.0.2</version>
 		</dependency>
 
+		<!-- Postgres -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>
@@ -110,6 +117,20 @@
 				<dbUrl>jdbc:h2:mem:testdb</dbUrl>
 				<maven.test.skip>false</maven.test.skip>
 				<activatedProperties>dev</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dbUserName>zlrtuvzfnebegj</dbUserName>
+				<dbUserPassword>0d1debba97d22b327cc7f181eda27c9e7715919a635bc5177a0bd7dba3beb6d5</dbUserPassword>
+				<dbDriver>org.postgresql.Driver</dbDriver>
+				<dbUrl>postgres://zlrtuvzfnebegj:0d1debba97d22b327cc7f181eda27c9e7715919a635bc5177a0bd7dba3beb6d5@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d4j5a7n742t7r9</dbUrl>
+				<maven.test.skip>false</maven.test.skip>
+				<activatedProperties>prod</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
 			</properties>
 		</profile>
 	</profiles>
@@ -131,7 +152,6 @@
 					<username>${dbUserName}</username>
 					<password>${dbUserPassword}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
-					<changelogSchemaName>${dbSchema}</changelogSchemaName>
 				</configuration>
 			</plugin>
 
