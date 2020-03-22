@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -77,7 +77,7 @@
 			<version>${swagger.version}</version>
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>3.6.1</version>
@@ -86,7 +86,7 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 			<version>3.6.1</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
@@ -117,6 +117,20 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>pg_local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dbUserName>postgres</dbUserName>
+				<dbUserPassword>postgres</dbUserPassword>
+				<dbDriver>org.postgresql.Driver</dbDriver>
+				<dbUrl>jdbc:postgresql://localhost:5432/postgres</dbUrl>
+				<maven.test.skip>false</maven.test.skip>
+				<activatedProperties>prod</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
+			</properties>
+		</profile>
+		<profile>
 			<id>prod</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -125,7 +139,7 @@
 				<dbUserName>zlrtuvzfnebegj</dbUserName>
 				<dbUserPassword>0d1debba97d22b327cc7f181eda27c9e7715919a635bc5177a0bd7dba3beb6d5</dbUserPassword>
 				<dbDriver>org.postgresql.Driver</dbDriver>
-				<dbUrl>postgres://zlrtuvzfnebegj:0d1debba97d22b327cc7f181eda27c9e7715919a635bc5177a0bd7dba3beb6d5@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d4j5a7n742t7r9</dbUrl>
+				<dbUrl>jdbc:postgresql://ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d4j5a7n742t7r9?sslmode=require</dbUrl>
 				<maven.test.skip>false</maven.test.skip>
 				<activatedProperties>prod</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
 			</properties>
@@ -136,7 +150,7 @@
 		<plugins>
 
 			<!-- liquibase -->
-			<plugin>
+			<!--<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.6.1</version>
@@ -150,7 +164,7 @@
 					<password>${dbUserPassword}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
-			</plugin>
+			</plugin>-->
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

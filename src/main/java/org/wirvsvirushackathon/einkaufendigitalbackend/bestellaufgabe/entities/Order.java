@@ -20,20 +20,8 @@ public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue
-	@Column
 	private Integer id;
 
-<<<<<<< HEAD:digitaler-einkauf-backend/src/main/java/org/wirvsvirushackathon/einkaufendigitalbackend/entities/Order.java
-	@Column
-	private Person einkaeufer;
-	@Column
-	private User komissionaer;
-	@Column
-	private User lieferant;
-	@Column
-	private String summeKosten;
-	@OneToMany(targetEntity = Product.class, mappedBy = "id", fetch = FetchType.LAZY)
-=======
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Person einkaeufer;
 
@@ -47,14 +35,7 @@ public class Order implements Serializable {
 	private String summeKosten;
 
 	@OneToMany(targetEntity = Product.class, mappedBy = "order", fetch = FetchType.LAZY)
->>>>>>> develope:src/main/java/org/wirvsvirushackathon/einkaufendigitalbackend/bestellaufgabe/entities/Order.java
 	private List<Product> produkte;
-	@Column
-	private OrderStatus status;
-	@Column
-	private Long created;
-	@Column
-	private Long updated;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private OrderStatus status;
