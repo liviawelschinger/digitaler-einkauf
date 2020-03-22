@@ -26,9 +26,9 @@ public class PayPalService {
             String cancelUrl,
             String successUrl) throws PayPalRESTException{
         Amount amount = new Amount();
-       amount.setCurrency(currency);
+       amount.setCurrency("EUR");
         total = new BigDecimal(total).setScale(2, RoundingMode.HALF_UP).doubleValue();
-       amount.setTotal(String.format("%.2f", total));
+       amount.setTotal(String.format("%.3f", total));
 
         Transaction transaction = new Transaction();
         transaction.setDescription(description);
@@ -38,10 +38,10 @@ public class PayPalService {
         transactions.add(transaction);
 
         Payer payer = new Payer();
-        payer.setPaymentMethod(method);
+        payer.setPaymentMethod("PayPal");
 
         Payment payment = new Payment();
-        payment.setIntent(intent);
+        payment.setIntent("sale");
         payment.setPayer(payer);
         payment.setTransactions(transactions);
         RedirectUrls redirectUrls = new RedirectUrls();
