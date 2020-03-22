@@ -2,6 +2,7 @@ package org.wirvsvirushackathon.einkaufendigitalbackend.bestellaufgabe.controlle
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,8 +21,8 @@ public class OrderController {
         return orderRepository.findAll();
     }
 
-    @PostMapping(value = "/orders/new", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Order createNew(@RequestBody Order order) {
+    @PostMapping(value = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Order create(@RequestBody Order order) {
             return this.orderRepository.save(order);
     }
 
