@@ -25,8 +25,8 @@ public class PayPalController {
 
 
     @GetMapping("/")
-    public String home() {
-        return "redirect:/index";
+    public String index() {
+        return "index";
     }
 
     @PostMapping("/pay")
