@@ -107,9 +107,6 @@
 		<!-- Profile for local development -->
 		<profile>
 			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<dbUserName>sa</dbUserName>
 				<dbUserPassword>password</dbUserPassword>
