@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd"
+                   logicalFilePath="src/main/resources/db/changelog/liquibase.changelog.xml"
+>
+
+    <!-- Liquibase Maven
+        In Terminal simply execute: mvn liquibase:update -Pdev  -->
+
+    <!-- Create table product -->
+    <changeSet id="10" author="ww" failOnError="false" runAlways="true">
+        <preConditions>
+            <not>
+                <tableExists tableName="product"/>
+            </not>
+        </preConditions>
+        <createTable tableName="product">
+            <column autoIncrement="true" startWith="1" name="id" type="int">
+                <constraints primaryKey="true" primaryKeyName="pk_product" />
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="alternativ" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="anzahl" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="product"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Create order order -->
+    <changeSet id="20" author="ww" failOnError="false" runAlways="true">
+        <preConditions>
+            <not>
+                <tableExists tableName="order"/>
+            </not>
+        </preConditions>
+        <createTable tableName="order">
+            <column autoIncrement="true" startWith="1" name="id" type="int">
+                <constraints primaryKey="true" primaryKeyName="pk_order" />
+            </column>
+            <column name="id_einkaeufer" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_kommissionaer" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_lieferant" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="summe_kosten" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_status" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="order"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Create order order_product -->
+    <changeSet id="30" author="ww" failOnError="false" runAlways="true">
+        <preConditions>
+            <not>
+                <tableExists tableName="order_product"/>
+            </not>
+        </preConditions>
+        <createTable tableName="order_product">
+            <column name="id_order" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_product" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="order_product"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Create foreign key for column id_order in table order_product relating to column id in table order -->
+    <changeSet id="40" author="WW" failOnError="false" runAlways="true">
+        <preConditions>
+            <tableExists tableName="order_product" />
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_order_product_order" />
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="id_order"
+                                 baseTableName="order_product"
+                                 constraintName="fk_order_product_order"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="order"/>
+    </changeSet>
+
+    <!-- Create foreign key for column id_product in table order_product relating to column id in table product -->
+    <changeSet id="50" author="WW" failOnError="false" runAlways="true">
+        <preConditions>
+            <tableExists tableName="order_product" />
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_order_product_product" />
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="id_product"
+                                 baseTableName="order_product"
+                                 constraintName="fk_order_product_product"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+
+
+
+</databaseChangeLog>
+

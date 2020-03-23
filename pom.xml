@@ -77,7 +77,7 @@
 			<version>${swagger.version}</version>
 		</dependency>
 
-		<!--<dependency>
+		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-maven-plugin</artifactId>
 			<version>3.6.1</version>
@@ -85,8 +85,7 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>3.6.1</version>
-		</dependency>-->
+		</dependency>
 
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
@@ -116,7 +115,7 @@
 				<activatedProperties>dev</activatedProperties> <!-- mehrere Profiles werden mit Komma separiert -->
 			</properties>
 		</profile>
-		<!--<profile>
+		<profile>
 			<id>pg_local</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -127,10 +126,10 @@
 				<dbDriver>org.postgresql.Driver</dbDriver>
 				<dbUrl>jdbc:postgresql://localhost:5432/postgres</dbUrl>
 				<maven.test.skip>false</maven.test.skip>
-				<activatedProperties>prod</activatedProperties> &lt;!&ndash; mehrere Profiles werden mit Komma separiert &ndash;&gt;
+				<activatedProperties>prod</activatedProperties>
 			</properties>
 		</profile>
-		<profile>
+		<!--<profile>
 			<id>prod</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -150,7 +149,7 @@
 		<plugins>
 
 			<!-- liquibase -->
-			<!--<plugin>
+			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.6.1</version>
@@ -164,7 +163,7 @@
 					<password>${dbUserPassword}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
-			</plugin>-->
+			</plugin>
 
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
