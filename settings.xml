@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <dbUserName>vcprewjbvcqbee</dbUserName>
+                <dbUserPassword>3d87745be5509911d9200e60f19a40ffa47c71cfebdecadac7bc7bb66c2f253d</dbUserPassword>
+                <dbDriver>org.postgresql.Driver</dbDriver>
+                <dbUrl>jdbc:postgresql://ec2-54-247-79-178.eu-west-1.compute.amazonaws.com:5432/d1qlnc14ksusq2?sslmode=require</dbUrl>
+                <maven.test.skip>false</maven.test.skip>
+                <activatedProperties>prod</activatedProperties>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>prod</activeProfile>
+    </activeProfiles>
+</settings>
