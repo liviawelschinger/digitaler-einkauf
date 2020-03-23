@@ -129,20 +129,20 @@
 				<activatedProperties>prod</activatedProperties>
 			</properties>
 		</profile>
-		<!--<profile>
+		<profile>
 			<id>prod</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<activeByDefault>false</activeByDefault>
 			</activation>
 			<properties>
-				<dbUserName>zlrtuvzfnebegj</dbUserName>
-				<dbUserPassword>0d1debba97d22b327cc7f181eda27c9e7715919a635bc5177a0bd7dba3beb6d5</dbUserPassword>
+				<dbUserName>vcprewjbvcqbee</dbUserName>
+				<dbUserPassword>3d87745be5509911d9200e60f19a40ffa47c71cfebdecadac7bc7bb66c2f253d</dbUserPassword>
 				<dbDriver>org.postgresql.Driver</dbDriver>
-				<dbUrl>jdbc:postgresql://ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/d4j5a7n742t7r9?sslmode=require</dbUrl>
+				<dbUrl>jdbc:postgresql://ec2-54-247-79-178.eu-west-1.compute.amazonaws.com:5432/d1qlnc14ksusq2?sslmode=require</dbUrl>
 				<maven.test.skip>false</maven.test.skip>
-				<activatedProperties>prod</activatedProperties> &lt;!&ndash; mehrere Profiles werden mit Komma separiert &ndash;&gt;
+				<activatedProperties>prod</activatedProperties>
 			</properties>
-		</profile>-->
+		</profile>
 	</profiles>
 
 	<build>
