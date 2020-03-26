@@ -11,7 +11,7 @@
 
     <!-- Create table product -->
     <changeSet id="10" author="ww" failOnError="false" runAlways="true">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="product"/>
             </not>
@@ -37,7 +37,7 @@
 
     <!-- Create order order -->
     <changeSet id="20" author="ww" failOnError="false" runAlways="true">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="order"/>
             </not>
@@ -75,7 +75,7 @@
 
     <!-- Create order order_product -->
     <changeSet id="30" author="ww" failOnError="false" runAlways="true">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="order_product"/>
             </not>
@@ -95,7 +95,7 @@
 
     <!-- Create foreign key for column id_order in table order_product relating to column id in table order -->
     <changeSet id="40" author="WW" failOnError="false" runAlways="true">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <tableExists tableName="order_product" />
             <not>
                 <foreignKeyConstraintExists foreignKeyName="fk_order_product_order" />
@@ -112,7 +112,7 @@
 
     <!-- Create foreign key for column id_product in table order_product relating to column id in table product -->
     <changeSet id="50" author="WW" failOnError="false" runAlways="true">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <tableExists tableName="order_product" />
             <not>
                 <foreignKeyConstraintExists foreignKeyName="fk_order_product_product" />
