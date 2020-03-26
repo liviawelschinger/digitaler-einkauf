@@ -162,6 +162,7 @@
 					<username>${dbUserName}</username>
 					<password>${dbUserPassword}</password>
 					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+					<logging>debug</logging>
 				</configuration>
 			</plugin>
 
