@@ -72,26 +72,32 @@ public class FakeDataService {
 			case 0:
 				p.setName(faker.food().dish());
 				p.setCategory(categoryRepository.findCategoryByName("Gericht"));
+				p.setAlternativ("Spaghetti Bolognese");
 				break;
 			case 1:
 				p.setName(faker.food().fruit());
 				p.setCategory(categoryRepository.findCategoryByName("Frucht"));
+				p.setAlternativ("Birne");
 				break;
 			case 2:
 				p.setName(faker.food().ingredient());
 				p.setCategory(categoryRepository.findCategoryByName("Inhaltsstoffe"));
+				p.setAlternativ("Salz");
 				break;
 			case 3:
 				p.setName(faker.food().spice());
 				p.setCategory(categoryRepository.findCategoryByName("Gewürz"));
+				p.setAlternativ("Pfeffer");
 				break;
 			case 4:
 				p.setName(faker.food().sushi());
 				p.setCategory(categoryRepository.findCategoryByName("Sushi"));
+				p.setAlternativ("");
 				break;
 			case 5:
 				p.setName(faker.food().vegetable());
 				p.setCategory(categoryRepository.findCategoryByName("Gemüse"));
+				p.setAlternativ("Gurke");
 				break;
 			}
 			LOG.debug(p + " wird hinzugefügt");
