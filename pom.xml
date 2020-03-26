@@ -135,10 +135,10 @@
 				<activeByDefault>false</activeByDefault>
 			</activation>
 			<properties>
-				<dbUserName>jwlveofguhddvf</dbUserName>
-				<dbUserPassword>f845de7f4cce2bafc069172fac0d0a3715ef9d437d8bb65430307ed70c213cb4</dbUserPassword>
+				<dbUserName>fwtvyojstjnhjd</dbUserName>
+				<dbUserPassword>269b4477bdd7fbeb113b8c52c2d6800df8f7a72f9c801543cf70de87a99ce7e8</dbUserPassword>
 				<dbDriver>org.postgresql.Driver</dbDriver>
-				<dbUrl>jdbc:postgresql://ec2-46-137-156-205.eu-west-1.compute.amazonaws.com:5432/d53s0bhr27qp3d?sslmode=require</dbUrl>
+				<dbUrl>jdbc:postgresql://ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/dck3mrlt03oe65?sslmode=require</dbUrl>
 				<maven.test.skip>false</maven.test.skip>
 				<activatedProperties>prod</activatedProperties>
 			</properties>
