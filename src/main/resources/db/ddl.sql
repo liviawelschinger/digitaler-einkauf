@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `person` (
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '0',
-  `alternativ` varchar(100) NOT NULL DEFAULT '0',
+  `alternativ` varchar(100) NULL DEFAULT '0',
   `anzahl` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
